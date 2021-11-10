@@ -7,6 +7,9 @@ import {
   NavBtn,
   NavBtnLink,
 } from './MenuElements';
+import {
+  ShoppingCartOutlined,
+} from "@material-ui/icons";
   
 const Menu = () => {
   return (
@@ -22,7 +25,7 @@ const Menu = () => {
             Laptops
           </NavLink>
           <NavLink to='/annual' activeStyle>
-            Tablets
+          <ShoppingCartOutlined />
           </NavLink>
           {/* Second Nav */}
           {/* <NavBtnLink to='/sign-in'>Sign In</NavBtnLink> */}

@@ -1,8 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Link } from "react-router-dom";
+import React, {useEffect} from 'react';
 import Carou from './Carou';
-import Menu from './Menu';
-import '../components/Home.css'
+import './Home.css'
 
 const Home = () => {
 

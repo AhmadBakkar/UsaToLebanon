@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 //import { deleteUser, getAll, update } from './api/api';
 import './Form1.css';
-import { Link, useLocation, useHistory } from "react-router-dom";
+import {useHistory } from "react-router-dom";
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
-import { SettingsInputHdmi } from 'material-ui-icons';
 import Axios from 'axios'
 
 const Form1 = () => {
@@ -130,7 +129,7 @@ const selectedfile = () => {
       </form>
       <div className="is-grouped">
       <Button variant="contained" color="success" className="button" onClick={insertProduct} >Save</Button>
-          <Button variant="outlined" color="error" className="button" onClick={selectedfile}>Delete</Button>
+          <Button variant="outlined" color="error" className="button" onClick={deleteProduct}>Delete</Button>
           <Button variant="outlined" className="button" onClick={updateProduct}>Update</Button>
           <Button variant="outlined" className="button" onClick={back} >Back</Button>
         </div>

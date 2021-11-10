@@ -1,10 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import Table1 from './components/Table1';
-import Form1 from './components/Form1';
 import reportWebVitals from './reportWebVitals';
-import ProductsDisplay from './components/ProductsDisplay';
+
   
 ReactDOM.render(
   <React.StrictMode>

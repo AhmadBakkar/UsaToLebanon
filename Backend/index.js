@@ -69,7 +69,7 @@ app.post("/delete", (req, res) => {
     const description = req.body.description;
     const price = req.body.price;
 
-    db.query("DELETE FROM laptops WHERE id = ? and ImageSrc = ? and Name = ? and Description = ? and Price = ?", [id,image, name,description,price], (err, result) => {
+    db.query("DELETE FROM laptops WHERE id = ? and Name = ? ", [id, name], (err, result) => {
         console.log(err);
         if (err) {
             res.send({ err: err })

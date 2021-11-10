@@ -1,10 +1,8 @@
 
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-
 import Product from "./Product";
-import axios from "axios";
-import { Rowing } from "@material-ui/icons";
+
 
 const Container = styled.div`
   padding: 20px;
@@ -23,7 +21,7 @@ const Products = ({ cat, filters, sort }) => {
 
 
   return (
-    <Container>
+    <Container style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '100vh'}}>
       <Product></Product>
     </Container>
   );

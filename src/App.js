@@ -1,13 +1,12 @@
 import React from 'react';
 import './App.css';
-import Menu from './components/Menu';
+import Menu from './components/Menu/Menu';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Home from './components/Home';
-import AdminLog from './components/AdminLog';
-import AllProducts from './components/AllProducts';
-import Table1 from './components/Table1';
-import Form1 from './components/Form1';
-import ProductsDisplay from './components/ProductsDisplay';
+import Home from './components/Home/Home';
+import AdminLog from './components/Admin/AdminLog';
+import AllProducts from './components/Admin/AllProducts';
+import Form1 from './components/Admin/Form1';
+import ProductsDisplay from './components/Tablets/ProductsDisplay';
 
   
 function App() {
