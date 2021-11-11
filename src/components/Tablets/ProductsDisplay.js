@@ -1,9 +1,8 @@
 
-import { useEffect, useState } from "react";
+
 import styled from "styled-components";
 import Product from "./Product";
-import Cart from "../Cart/Cart";
-import axios from "axios"
+
 
 
 
@@ -15,11 +14,6 @@ const Container = styled.div`
 `;
 
 const Products = (props) => {
-
-  
-
-
-
 
 
   return (

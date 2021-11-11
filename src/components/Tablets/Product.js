@@ -11,15 +11,14 @@ import {useHistory} from "react-router";
 import {
   ShoppingCartOutlined,
 } from "@material-ui/icons";
-import { propTypes } from 'react-bootstrap/esm/Image';
-import { ProductionQuantityLimitsTwoTone } from '@mui/icons-material';
+
 
 const Product  = (props) => {
   const [search,setSearch] = useState('');
   const [items,setItems] = useState([]);
   const [cartItems,setCartItems] = useState([]);
-
- 
+  
+ console.log(cartItems)
 
 
  const history = useHistory();
@@ -44,21 +43,13 @@ const Product  = (props) => {
    */
    useEffect(()=>{
     loadProducts();
-    console.log(items);
+    
   },[]);
 
   const addToCart = (val) => {
-    //setCartItems([...cartItems, val]);
-    setCartItems(['asda','asda']);
-    localStorage.setItem('cartItems', cartItems);
-  }
-
-
-  const checkout = () =>{
-    history.push({
-      pathname: '/checkout',
-      state: {cartItems: cartItems}
-    });
+    setCartItems([...cartItems, val]);
+    localStorage.setItem("value",JSON.stringify(cartItems));
+   
   }
 
   
@@ -111,5 +102,5 @@ const Product  = (props) => {
   }
 
 
-export default ProductionQuantityLimitsTwoTone;
+export default Product;
 
