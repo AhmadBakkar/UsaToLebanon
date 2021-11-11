@@ -7,19 +7,25 @@ import IconButton from '@mui/material/IconButton';
 import { useEffect, useState } from "react";
 import { Component } from "react";
 import axios from "axios";
+import {useHistory} from "react-router";
 import {
-  FavoriteBorderOutlined,
-  SearchOutlined,
   ShoppingCartOutlined,
 } from "@material-ui/icons";
 import { propTypes } from 'react-bootstrap/esm/Image';
+import { ProductionQuantityLimitsTwoTone } from '@mui/icons-material';
 
 const Product  = (props) => {
   const [search,setSearch] = useState('');
   const [items,setItems] = useState([]);
   const [cartItems,setCartItems] = useState([]);
 
- console.log(cartItems)
+ 
+
+
+ const history = useHistory();
+
+//I want to pass cartItems array to Cart Component
+
 
 
 
@@ -38,10 +44,21 @@ const Product  = (props) => {
    */
    useEffect(()=>{
     loadProducts();
+    console.log(items);
   },[]);
 
   const addToCart = (val) => {
-    setCartItems([...cartItems, val]);
+    //setCartItems([...cartItems, val]);
+    setCartItems(['asda','asda']);
+    localStorage.setItem('cartItems', cartItems);
+  }
+
+
+  const checkout = () =>{
+    history.push({
+      pathname: '/checkout',
+      state: {cartItems: cartItems}
+    });
   }
 
   
@@ -94,5 +111,5 @@ const Product  = (props) => {
   }
 
 
-export default Product;
+export default ProductionQuantityLimitsTwoTone;
 

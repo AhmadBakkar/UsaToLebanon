@@ -4,7 +4,7 @@ import styled from "styled-components";
 import Product from "./Product";
 import Cart from "../Cart/Cart";
 import axios from "axios"
-import ProductCopy from "./Product";
+
 
 
 const Container = styled.div`
