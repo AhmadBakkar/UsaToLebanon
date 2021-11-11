@@ -12,90 +12,87 @@ import {
   SearchOutlined,
   ShoppingCartOutlined,
 } from "@material-ui/icons";
+import { propTypes } from 'react-bootstrap/esm/Image';
 
-class Product extends Component {
-  constructor(props) {
-      super(props);
-      this.state = { 
-          search: '',
-          items:[],          
-       }
-       this.setSearch = this.setSearch.bind(this);
-  }
+const Product  = (props) => {
+  const [search,setSearch] = useState('');
+  const [items,setItems] = useState([]);
+  const [cartItems,setCartItems] = useState([]);
 
-   
-  setSearch(e) {
-    this.setState({ search: e.target.value });
-    e.preventDefault();
-  }
+ console.log(cartItems)
 
-  loadProducts = () =>{
-    axios.get("http://localhost:3001/allRecord",{
+
+
+
+  const loadProducts = () => {
+    axios.get("http://localhost:3001/allRecord", {
     }).then((res) => {
-        console.log(res);
-        this.setState({items: res?.data});
-}
-)
-};
-  
+      console.log(res);
+      setItems(res?.data);
+    }
+    )
+  };
+
   /**
    * This is the first method to be called.
    */
-  componentDidMount(){
-      
-      this.loadProducts();
+   useEffect(()=>{
+    loadProducts();
+  },[]);
+
+  const addToCart = (val) => {
+    setCartItems([...cartItems, val]);
   }
 
-  //onChange={e => {setSearchItem(e.target.value)}}
+  
+    return (
 
-  render(){
-  return (
-    
-    <ImageList sx={{ width: 1000, height: 800 }} >
-      <div >
-      <input style={{ height: 40 ,width:300}} type="text" placeholder="Search" value={this.state.search} onChange={this.setSearch}/>
-      </div>
-      <ImageListItem key="Subheader" cols={2}>
-        <ListSubheader component="div">Laptops</ListSubheader>
-      </ImageListItem>
-      {this.state.items.filter((val) =>{
-        if(this.state.search == ""){
-        return val
-      }else if(val.Description.toLowerCase().includes(this.state.search.toLowerCase())){
-        return val
-      }else if(val.Name.toLowerCase().includes(this.state.search.toLowerCase())){
-        return val
-      }else if(('' + val.Price).includes(this.state.search)){
-        return val
-      }
-      }).map((val) => (
-        <ImageListItem key={val.ImageSrc}>
-          <img
-            src={`${val.ImageSrc}?w=248&fit=crop&auto=format`}
-            srcSet={`${val.ImageSrc}?w=248&fit=crop&auto=format&dpr=2 2x`}
-            alt={val.Name}
-            loading="lazy"
-          />
-          <ImageListItemBar
-            title={val.Name}
-            subtitle={val.Description + "   " + val.Price +"\u0024"}
-            
-            actionIcon={
-              <IconButton
-                sx={{ color: 'rgba(255, 255, 255, 0.54)' }}
-                aria-label={`info about ${val.Price}`}
-              >
-                
-          <ShoppingCartOutlined />
-        
-              </IconButton>
-            }
-          />
+      <ImageList sx={{ width: 750, height: 800 }} className="block col-2">
+        <div >
+          <input style={{ height: 40, width: 300 }} type="text" placeholder="Search" name="Search" onChange={(e) => { setSearch(e.target.value); }} />
+        </div>
+        <ImageListItem key="Subheader" cols={2}>
+          <ListSubheader component="div">Laptops</ListSubheader>
         </ImageListItem>
-      ))}
-    </ImageList>
-  );
-}}
+        {items.filter((val) => {
+          if (search == "") {
+            return val
+          } else if (val.Description.toLowerCase().includes(search.toLowerCase())) {
+            return val
+          } else if (val.Name.toLowerCase().includes(search.toLowerCase())) {
+            return val
+          } else if (('' + val.Price).includes(search)) {
+            return val
+          }
+        }).map((val) => (
+          <ImageListItem key={val.id}>
+            <img
+              src={`${val.ImageSrc}?w=248&fit=crop&auto=format`}
+              srcSet={`${val.ImageSrc}?w=248&fit=crop&auto=format&dpr=2 2x`}
+              alt={val.Name}
+              loading="lazy"
+            />
+            <ImageListItemBar
+              title={val.Name}
+              subtitle={val.Description + "   " + val.Price + "\u0024"}
+
+              actionIcon={
+                <IconButton
+                  sx={{ color: 'rgba(255, 255, 255, 0.54)' }}
+                  aria-label={`info about ${val.Price}`}
+                  onClick={() => addToCart(val)}>
+
+                  <ShoppingCartOutlined />
+
+                </IconButton>
+              }
+            />
+          </ImageListItem>
+        ))}
+      </ImageList>
+    );
+  }
+
 
 export default Product;
 

@@ -2,6 +2,9 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import Product from "./Product";
+import Cart from "../Cart/Cart";
+import axios from "axios"
+import ProductCopy from "./Product";
 
 
 const Container = styled.div`
@@ -11,18 +14,19 @@ const Container = styled.div`
   justify-content: space-between;
 `;
 
-const Products = ({ cat, filters, sort }) => {
-  const [products, setProducts] = useState([]);
-  const [filteredProducts, setFilteredProducts] = useState([]);
+const Products = (props) => {
 
- 
+  
+
 
 
 
 
   return (
     <Container style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '100vh'}}>
-      <Product></Product>
+      <div className="row">
+      <Product></Product>   
+      </div>
     </Container>
   );
 };

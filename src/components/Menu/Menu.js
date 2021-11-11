@@ -11,7 +11,7 @@ import {
   ShoppingCartOutlined,
 } from "@material-ui/icons";
   
-const Menu = () => {
+const Menu = (props) => {
   return (
     <>
       <Nav>
@@ -24,11 +24,9 @@ const Menu = () => {
           <NavLink to='/Laptops' activeStyle>
             Laptops
           </NavLink>
-          <NavLink to='/annual' activeStyle>
+          <NavLink to='/checkout' activeStyle>
           <ShoppingCartOutlined />
           </NavLink>
-          {/* Second Nav */}
-          {/* <NavBtnLink to='/sign-in'>Sign In</NavBtnLink> */}
         </NavMenu>
         <NavBtn>
           <NavBtnLink to='/admin'>Admin</NavBtnLink>
