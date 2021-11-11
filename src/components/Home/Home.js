@@ -6,7 +6,7 @@ const Home = () => {
 
     useEffect(() => {
         
-
+        localStorage.clear();
     }, [])
 
 

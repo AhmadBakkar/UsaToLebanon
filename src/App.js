@@ -8,6 +8,7 @@ import AllProducts from './components/Admin/AllProducts';
 import Form1 from './components/Admin/Form1';
 import ProductsDisplay from './components/Tablets/ProductsDisplay';
 import Cart from './components/Cart/Cart';
+import Footer from './components/Footer/Footer';
 
   
 function App() {
@@ -32,6 +33,7 @@ function App() {
       <Switch>
         <Route path='/checkout' exact component={Cart} />
       </Switch>
+      <Footer/>
     </Router>
   );
 }

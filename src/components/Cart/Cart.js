@@ -23,10 +23,13 @@ export default function Cart(props) {
         /**
          * here you can read the data passed as props.
          */
+        try{
         setData(JSON.parse(localStorage.getItem("value" || 'null')));
-        for(let i = 0;i < data.length;i++){
-            total+= data[i].Price;
+        }catch(err){
+            console.log(err);
         }
+
+        
     })
 
  
